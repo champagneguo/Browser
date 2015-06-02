@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/page_indicators_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/combo_page_indicator_container_margin_top"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/combo_page_indicator_container_lr_padding"
+        android:paddingEnd="@dimen/combo_page_indicator_container_lr_padding">
+
+        <TextView
+            android:id="@+id/page_indicator_bookmarks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/tab_bookmarks"
+            android:textColor="@color/txt_color_bookmark_address"
+            android:background="@drawable/ic_first_page_selected"/>
+
+        <TextView
+            android:id="@+id/page_indicator_history"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/tab_history"
+            android:textColor="@color/txt_color_bookmark_address"
+            android:background="@drawable/ic_last_page_unselected"/>
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/tab_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.0"/>
+
+    <RelativeLayout
+        android:id="@+id/bottom_btns_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/combo_view_bottom_btns_container_height">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentTop="true"
+            android:background="@color/bookmarkWidgetDivider"
+        />
+
+        <LinearLayout
+        android:id="@+id/group_and_bookmark_btn_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/btn_new_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:text="@string/btn_label_new_group"
+                android:textColor="@color/txt_color_bookmark_address"
+                android:drawableTop="@drawable/ic_btn_new_group"
+                android:drawablePadding="1px"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/btn_new_bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:text="@string/add_new_bookmark"
+                android:textColor="@color/txt_color_bookmark_address"
+                android:drawableTop="@drawable/ic_btn_new_bookmark"
+                android:drawablePadding="1px"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_clear_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="11sp"
+            android:text="@string/btn_label_clear_history"
+            android:textColor="@color/txt_color_bookmark_address"
+            android:drawableTop="@drawable/ic_btn_clear_history"
+            android:drawablePadding="1px"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Copyright 2011, The Android Open Source Project
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/titlebar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/titlebar_height"
+    android:background="@color/color_browser_action_bar">
+
+    <LinearLayout
+        android:id="@+id/titlebar_btns_at_left"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dip" >
+
+        <ImageView android:id="@+id/back_btn"
+            android:layout_width="@dimen/bottom_bar_button_width"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back_selector_titlebar"
+            style="@style/HoloButton"
+            />
+        <ImageView android:id="@+id/forward_btn"
+            android:layout_width="@dimen/bottom_bar_button_width"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_forward_selector_titlebar"
+            style="@style/HoloButton"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/titlebar_btns_at_right"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:paddingRight="5dip" >
+
+        <ImageView android:id="@+id/new_tab_btn"
+            android:layout_width="@dimen/bottom_bar_button_width"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:layout_weight="1"
+            android:src="@drawable/ic_new_tab_selector_titlebar"
+            style="@style/HoloButton"
+            />
+
+        <TextView android:id="@+id/tabcount_view"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#ff666666" 
+            android:layout_width="@dimen/bottom_bar_button_width" 
+            android:layout_height="wrap_content"            android:layout_centerInParent="true"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <include
+        layout="@layout/title_bar_nav"
+        android:id="@+id/taburlbar"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/toolbar_height"         android:layout_toRightOf="@id/titlebar_btns_at_left"
+        android:layout_toLeftOf="@id/titlebar_btns_at_right"
+        android:layout_centerVertical="true"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+    <ViewStub
+        android:id="@+id/snapshotbar_stub"
+        android:layout="@layout/title_bar_snapshot"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height" />
+    <ViewStub
+        android:id="@+id/autologin_stub"
+        android:layout="@layout/title_bar_autologin"
+        android:paddingTop="3dip"
+        android:layout_below="@id/taburlbar"
+        android:layout_alignLeft="@id/taburlbar"
+        android:layout_alignRight="@id/taburlbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <com.android.browser.PageProgressView
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_below="@id/taburlbar"
+        android:src="@drawable/progress"
+        android:layout_marginTop="@dimen/progress_bar_margin"
+        android:visibility="gone" />
+
+</RelativeLayout>
